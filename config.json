@@ -1,0 +1,72 @@
+{
+    "frame_rate": "",
+    "tasks": [{
+            "task_name": "face_detection",
+            "model": [{
+                    "model_name": "Haar cascade",
+                    "model_path": "./models/haar_cascade/haarcascade_frontalface_default.xml",
+                    "model_config_path": "",
+                    "description": []
+                },
+                {
+                    "model_name": "MTCNN",
+                    "model_path": "./models/mtcnn/det1.caffemodel",
+                    "model_config_path": "./models/mtcnn/det1.prototxt",
+                    "description": []
+                },
+                {
+                    "model_name": "NPD",
+                    "model_path": "./models/npd/model_frontal.mat",
+                    "model_config_path": "",
+                    "description": []
+                },
+                {
+                    "model_name": "Resnet SSD",
+                    "model_path": "./models/resnet_ssd/Res10_300x300_SSD_iter_140000.caffemodel",
+                    "model_config_path": "./models/resnet_ssd/Resnet_SSD_deploy.prototxt",
+                    "description": []
+                },
+                {
+                    "model_name": "HOG dlib",
+                    "model_path": "",
+                    "model_config_path": "",
+                    "description": []
+                },
+                {
+                    "model_name": "MMOD lib",
+                    "model_path": "./models/mmod_lib/mmod_human_face_detector.dat",
+                    "model_config_path": "",
+                    "description": []
+                }
+            ]
+        }, {
+            "task_name": "face_recognition",
+            "model": []
+        }, {
+            "task_name": "human_detection",
+            "model": [{
+                    "model_name": "HOG",
+                    "model_path": "",
+                    "model_config_path": "",
+                    "description": []
+                },{
+                    "model_name": "Haar cascade",
+                    "model_path": "./models/haar_cascade/haarcascade_frontalface_default.xml",
+                    "model_config_path": "",
+                    "description": []
+                }]
+        },
+        {
+            "task_name": "object_detection",
+            "model": []
+        },
+        {
+            "task_name": "object_tracking",
+            "model": []
+        },
+        {
+            "task_name": "motion_detection",
+            "model": []
+        }
+    ]
+}
