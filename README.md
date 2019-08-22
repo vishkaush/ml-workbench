@@ -55,10 +55,10 @@ No Available
 [https://www.pyimagesearch.com/2018/02/26/face-detection-with-opencv-and-deep-learning/](https://www.pyimagesearch.com/2018/02/26/face-detection-with-opencv-and-deep-learning/)
 [https://developer.gnome.org/gtk3/stable/](https://developer.gnome.org/gtk3/stable/)
 [https://realpython.com/intro-to-python-threading/](https://realpython.com/intro-to-python-threading/)
-https://docs.opencv.org/3.4.1/d7/d8b/tutorial_py_face_detection.html
-https://www.learnopencv.com/face-detection-opencv-dlib-and-deep-learning-c-python/
-https://github.com/Urviagrawal/Facial-Landmark-Detector
-https://github.com/kpzhang93/MTCNN_face_detection_alignment
-https://github.com/Bkmz21/CompactCNNCascade
-https://github.com/wincle/NPD
+[https://docs.opencv.org/3.4.1/d7/d8b/tutorial_py_face_detection.html/](https://docs.opencv.org/3.4.1/d7/d8b/tutorial_py_face_detection.html/)
+[https://www.learnopencv.com/face-detection-opencv-dlib-and-deep-learning-c-python/](https://www.learnopencv.com/face-detection-opencv-dlib-and-deep-learning-c-python/)
+[https://github.com/Urviagrawal/Facial-Landmark-Detector/](https://github.com/Urviagrawal/Facial-Landmark-Detector/)
+[https://github.com/kpzhang93/MTCNN_face_detection_alignment/](https://github.com/kpzhang93/MTCNN_face_detection_alignment/)
+[https://github.com/Bkmz21/CompactCNNCascade/](https://github.com/Bkmz21/CompactCNNCascade/)
+[https://github.com/wincle/NPD/](https://github.com/wincle/NPD/)
 
