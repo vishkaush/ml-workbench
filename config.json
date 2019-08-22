@@ -37,6 +37,12 @@
                     "model_path": "./models/mmod_lib/mmod_human_face_detector.dat",
                     "model_config_path": "",
                     "description": []
+                },
+                {
+                    "model_name": "Pytorch",
+                    "model_path": "./models/pytorch/FaceBoxes.pth",
+                    "model_config_path": "",
+                    "description": []
                 }
             ]
         }, {
