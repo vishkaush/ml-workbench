@@ -1,7 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.18.3 -->
+<!-- Generated with glade 3.22.1 -->
 <interface>
-  <requires lib="gtk+" version="3.12"/>
+  <requires lib="gtk+" version="3.18"/>
+  <object class="GtkFileFilter" id="filefilter1">
+    <patterns>
+      <pattern>*.mp4</pattern>
+    </patterns>
+  </object>
+  <object class="GtkListStore" id="model1Store">
+    <columns>
+      <!-- column-name gchararray -->
+      <column type="gchararray"/>
+      <!-- column-name gchararray1 -->
+      <column type="gchararray"/>
+    </columns>
+  </object>
+  <object class="GtkListStore" id="model2Store">
+    <columns>
+      <!-- column-name gchararray -->
+      <column type="gchararray"/>
+      <!-- column-name gchararray1 -->
+      <column type="gchararray"/>
+    </columns>
+  </object>
+  <object class="GtkListStore" id="taskStore">
+    <columns>
+      <!-- column-name gchararray -->
+      <column type="gchararray"/>
+      <!-- column-name gchararray1 -->
+      <column type="gchararray"/>
+    </columns>
+  </object>
   <object class="GtkWindow" id="main_window">
     <property name="can_focus">False</property>
     <property name="title" translatable="yes">ML Workbench</property>
@@ -9,6 +38,9 @@
     <property name="default_width">1000</property>
     <property name="default_height">1000</property>
     <signal name="destroy" handler="on_main_window_destroy" swapped="no"/>
+    <child>
+      <placeholder/>
+    </child>
     <child>
       <object class="GtkBox" id="box2">
         <property name="visible">True</property>
@@ -24,6 +56,8 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">Select a computer vision task from the list</property>
+                <property name="margin_left">10</property>
+                <property name="margin_top">10</property>
                 <property name="label" translatable="yes">Task: </property>
               </object>
               <packing>
@@ -32,22 +66,13 @@
               </packing>
             </child>
             <child>
-              <object class="GtkComboBox" id="taskComboBox">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="hexpand">True</property>
-                <signal name="changed" handler="on_taskComboBox_changed" swapped="no"/>
-              </object>
-              <packing>
-                <property name="left_attach">1</property>
-                <property name="top_attach">0</property>
-              </packing>
-            </child>
-            <child>
               <object class="GtkLabel" id="label2">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">Provide path to additional input for this model. For example, faces dircetory for a face recognition model</property>
+                <property name="margin_left">12</property>
+                <property name="margin_right">6</property>
+                <property name="margin_top">10</property>
                 <property name="label" translatable="yes">Input:</property>
                 <property name="ellipsize">start</property>
                 <property name="xalign">0.47999998927116394</property>
@@ -61,12 +86,36 @@
               <object class="GtkFileChooserButton" id="trainDataFileChooser">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="margin_right">10</property>
+                <property name="margin_top">10</property>
                 <property name="hexpand">True</property>
                 <property name="create_folders">False</property>
+                <property name="title" translatable="yes">Select a Video File</property>
                 <signal name="file-set" handler="on_trainDataFileChooser_file_set" swapped="no"/>
               </object>
               <packing>
                 <property name="left_attach">3</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkComboBox" id="taskComboBox">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="margin_left">25</property>
+                <property name="margin_top">10</property>
+                <property name="hexpand">True</property>
+                <property name="model">taskStore</property>
+                <signal name="changed" handler="on_taskComboBox_changed" swapped="no"/>
+                <child>
+                  <object class="GtkCellRendererText" id="renderer"/>
+                  <attributes>
+                    <attribute name="text">1</attribute>
+                  </attributes>
+                </child>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
                 <property name="top_attach">0</property>
               </packing>
             </child>
@@ -85,6 +134,8 @@
               <object class="GtkLabel" id="label3">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="margin_left">10</property>
+                <property name="margin_top">3</property>
                 <property name="label" translatable="yes">Model 1: </property>
               </object>
               <packing>
@@ -95,9 +146,20 @@
             <child>
               <object class="GtkComboBox" id="model1ComboBox">
                 <property name="visible">True</property>
+                <property name="sensitive">False</property>
                 <property name="can_focus">False</property>
+                <property name="margin_left">1</property>
+                <property name="margin_top">3</property>
                 <property name="hexpand">True</property>
+                <property name="vexpand">False</property>
+                <property name="model">model1Store</property>
                 <signal name="changed" handler="on_model1ComboBox_changed" swapped="no"/>
+                <child>
+                  <object class="GtkCellRendererText" id="renderer1"/>
+                  <attributes>
+                    <attribute name="text">1</attribute>
+                  </attributes>
+                </child>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -108,6 +170,7 @@
               <object class="GtkLabel" id="label4">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="margin_top">3</property>
                 <property name="label" translatable="yes">Model 2: </property>
               </object>
               <packing>
@@ -118,12 +181,50 @@
             <child>
               <object class="GtkComboBox" id="model2ComboBox">
                 <property name="visible">True</property>
+                <property name="sensitive">False</property>
                 <property name="can_focus">False</property>
+                <property name="margin_right">10</property>
+                <property name="margin_top">3</property>
                 <property name="hexpand">True</property>
+                <property name="model">model2Store</property>
                 <signal name="changed" handler="on_model2ComboBox_changed" swapped="no"/>
+                <child>
+                  <object class="GtkCellRendererText" id="renderer2"/>
+                  <attributes>
+                    <attribute name="text">1</attribute>
+                  </attributes>
+                </child>
               </object>
               <packing>
                 <property name="left_attach">3</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="margin_left">4</property>
+                <property name="margin_right">4</property>
+                <property name="margin_top">3</property>
+                <property name="label" translatable="yes">Frame Rate</property>
+              </object>
+              <packing>
+                <property name="left_attach">4</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="framerate">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="margin_right">10</property>
+                <property name="margin_top">3</property>
+                <property name="max_length">5</property>
+                <property name="text" translatable="yes">5</property>
+              </object>
+              <packing>
+                <property name="left_attach">5</property>
                 <property name="top_attach">0</property>
               </packing>
             </child>
@@ -142,6 +243,8 @@
               <object class="GtkLabel" id="label5">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="margin_left">10</property>
+                <property name="margin_top">3</property>
                 <property name="label" translatable="yes">Video Source</property>
               </object>
               <packing>
@@ -155,6 +258,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
+                <property name="margin_top">3</property>
                 <property name="xalign">0</property>
                 <property name="active">True</property>
                 <property name="draw_indicator">True</property>
@@ -172,6 +276,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
+                <property name="margin_top">3</property>
                 <property name="xalign">0</property>
                 <property name="active">True</property>
                 <property name="draw_indicator">True</property>
@@ -186,8 +291,12 @@
               <object class="GtkFileChooserButton" id="videoChooserButton">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="margin_right">10</property>
+                <property name="margin_top">3</property>
                 <property name="hexpand">True</property>
+                <property name="action">save</property>
                 <property name="create_folders">False</property>
+                <property name="filter">filefilter1</property>
                 <property name="title" translatable="yes">Select a Video File</property>
                 <signal name="file-set" handler="on_videoChooserButton_file_set" swapped="no"/>
               </object>
@@ -211,8 +320,12 @@
               <object class="GtkButton" id="generateResult1Button">
                 <property name="label" translatable="yes">Generate result for Model 1</property>
                 <property name="visible">True</property>
+                <property name="sensitive">False</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="margin_left">10</property>
+                <property name="margin_top">5</property>
+                <property name="margin_bottom">5</property>
                 <signal name="clicked" handler="on_generateResult1Button_clicked" swapped="no"/>
               </object>
               <packing>
@@ -224,11 +337,25 @@
               <object class="GtkProgressBar" id="progressbar1">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="margin_right">10</property>
+                <property name="margin_bottom">13</property>
                 <property name="hexpand">True</property>
                 <property name="show_text">True</property>
               </object>
               <packing>
                 <property name="left_attach">1</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="model1processtime">
+                <property name="can_focus">False</property>
+                <property name="margin_right">5</property>
+                <property name="label" translatable="yes">time taken</property>
+                <property name="width_chars">3</property>
+              </object>
+              <packing>
+                <property name="left_attach">2</property>
                 <property name="top_attach">0</property>
               </packing>
             </child>
@@ -247,8 +374,12 @@
               <object class="GtkButton" id="generateResult2Button">
                 <property name="label" translatable="yes">Generate result for Model 2</property>
                 <property name="visible">True</property>
+                <property name="sensitive">False</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="margin_left">10</property>
+                <property name="margin_top">5</property>
+                <property name="margin_bottom">5</property>
                 <signal name="clicked" handler="on_generateResult2Button_clicked" swapped="no"/>
               </object>
               <packing>
@@ -260,11 +391,24 @@
               <object class="GtkProgressBar" id="progressbar2">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="margin_right">10</property>
+                <property name="margin_bottom">13</property>
                 <property name="hexpand">True</property>
                 <property name="show_text">True</property>
               </object>
               <packing>
                 <property name="left_attach">1</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="model2processtime">
+                <property name="can_focus">False</property>
+                <property name="margin_right">5</property>
+                <property name="label" translatable="yes">time taken</property>
+              </object>
+              <packing>
+                <property name="left_attach">2</property>
                 <property name="top_attach">0</property>
               </packing>
             </child>
@@ -285,8 +429,10 @@
                 <property name="height_request">230</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="margin_left">10</property>
                 <property name="hexpand">True</property>
                 <property name="vexpand">True</property>
+                <signal name="draw" handler="on_drawing_area_draw1" swapped="no"/>
               </object>
               <packing>
                 <property name="left_attach">0</property>
@@ -298,8 +444,10 @@
                 <property name="height_request">230</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="margin_right">10</property>
                 <property name="hexpand">True</property>
                 <property name="vexpand">True</property>
+                <signal name="draw" handler="on_drawing_area_draw2" swapped="no"/>
               </object>
               <packing>
                 <property name="left_attach">2</property>
@@ -328,9 +476,32 @@
           <object class="GtkGrid" id="grid7">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="vexpand">True</property>
+            <property name="vexpand">False</property>
             <child>
-              <object class="GtkTextView" id="resultText1">
+              <object class="GtkButton" id="playVideo">
+                <property name="label" translatable="yes">Play</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="valign">start</property>
+                <property name="margin_left">10</property>
+                <property name="margin_right">10</property>
+                <property name="margin_top">11</property>
+                <property name="margin_bottom">9</property>
+                <property name="hexpand">False</property>
+                <property name="vexpand">False</property>
+                <property name="image_position">top</property>
+                <signal name="clicked" handler="playVideos" swapped="no"/>
+                <style>
+                  <class name="#playVideo {background-color: #00FF00;}"/>
+                </style>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkTextView" id="processtime1">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="hexpand">True</property>
@@ -346,7 +517,30 @@
               </packing>
             </child>
             <child>
-              <object class="GtkTextView" id="resultText2">
+              <object class="GtkButton" id="pauseVideo">
+                <property name="label" translatable="yes">Pause</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="valign">start</property>
+                <property name="margin_left">10</property>
+                <property name="margin_right">10</property>
+                <property name="margin_top">11</property>
+                <property name="margin_bottom">9</property>
+                <property name="hexpand">False</property>
+                <property name="vexpand">False</property>
+                <property name="image_position">top</property>
+                <signal name="clicked" handler="pauseVideos" swapped="no"/>
+                <style>
+                  <class name="#playVideo {background-color: #00FF00;}"/>
+                </style>
+              </object>
+              <packing>
+                <property name="left_attach">2</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkTextView" id="processtime2">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="hexpand">True</property>
@@ -357,7 +551,7 @@
                 <property name="monospace">True</property>
               </object>
               <packing>
-                <property name="left_attach">1</property>
+                <property name="left_attach">3</property>
                 <property name="top_attach">0</property>
               </packing>
             </child>
