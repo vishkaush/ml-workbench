@@ -1,9 +1,9 @@
 {
     "frame_rate": "",
     "tasks": [{
-            "task_name": "face_detection",
+            "task_name": "Face Detection",
             "model": [{
-                    "model_name": "Haar cascade",
+                    "model_name": "Haar Cascade",
                     "model_path": "./models/haar_cascade/haarcascade_frontalface_default.xml",
                     "model_config_path": "",
                     "description": []
@@ -27,29 +27,29 @@
                     "description": []
                 },
                 {
-                    "model_name": "HOG dlib",
+                    "model_name": "HOG Dlib",
                     "model_path": "",
                     "model_config_path": "",
                     "description": []
                 },
                 {
-                    "model_name": "MMOD lib",
+                    "model_name": "MMO Dlib",
                     "model_path": "./models/mmod_lib/mmod_human_face_detector.dat",
                     "model_config_path": "",
                     "description": []
                 },
                 {
-                    "model_name": "Pytorch",
+                    "model_name": "Blaze Face",
                     "model_path": "./models/pytorch/FaceBoxes.pth",
                     "model_config_path": "",
                     "description": []
                 }
             ]
         }, {
-            "task_name": "face_recognition",
+            "task_name": "Face Recognition",
             "model": []
         }, {
-            "task_name": "human_detection",
+            "task_name": "Human Detection",
             "model": [{
                     "model_name": "HOG",
                     "model_path": "",
@@ -63,15 +63,15 @@
                 }]
         },
         {
-            "task_name": "object_detection",
+            "task_name": "Object Detection",
             "model": []
         },
         {
-            "task_name": "object_tracking",
+            "task_name": "Object Tracking",
             "model": []
         },
         {
-            "task_name": "motion_detection",
+            "task_name": "Motion Detection",
             "model": []
         }
     ]
