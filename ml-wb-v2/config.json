@@ -1,0 +1,132 @@
+{
+	"frame_rate": "",
+
+	"tasks": [{
+			"task_name": "Select Task",
+			"model": [{
+				"model_name": " "
+			}]
+		},
+		{
+			"task_name": "Face Detection",
+			"model": [{
+					"model_name": "Haar Cascade",
+					"model_path": "/Models/Face_Detection/models/haarcascade_frontalface_default.xml",
+					"model_config_path": "",
+					"model_labels_file":"",
+					"description": []
+
+				},
+				{
+					"model_name": "MTCNN",
+					"model_path": "/Models/Face_Detection/models/det1.caffemodel",
+					"model_config_path": "/Models/Face_Detection/models/det1.prototxt",
+					"model_labels_file":"",
+					"description": []
+				},
+				{
+					"model_name": "NPD",
+					"model_path": "Models/Face_Detection/models/model_frontal.mat",
+					"model_config_path": "",
+					"model_labels_file":"",
+					"description": []
+				},
+				{
+					"model_name": "Resnet SSD",
+					"model_path": "/Models/Face_Detection/models/res10_300x300_ssd_iter_140000_fp16.caffemodel",
+					"model_config_path": "models/resnet_ssd/Resnet_SSD_deploy.prototxt",
+					"model_labels_file":"",
+					"description": []
+				},
+				{
+					"model_name": "HOG Dlib",
+					"model_path": "",
+					"model_config_path": "",
+					"model_labels_file":"",
+					"description": []
+				},
+				{
+					"model_name": "MMOD Dlib",
+					"model_path": "/Models/Face_Detection/models/mmod_human_face_detector.dat",
+					"model_config_path": "",
+					"model_labels_file":"",
+					"description": []
+				},
+				{
+					"model_name": "Blaze Face",
+					"model_path": "/models/pytorch/FaceBoxes.pth",
+					"model_config_path": "",
+					"model_labels_file":"",
+					"description": []
+				}
+			]
+		},
+		{
+			"task_name": "Face Recognition",
+			"model": []
+		}, {
+			"task_name": "Human Detection",
+			"model": [{
+					"model_name": "HOG",
+					"model_path": "",
+					"model_config_path": "",
+					"model_labels_file":"",
+					"description": []
+				},
+				{
+					"model_name": "Haar cascade",
+					"model_path": "./models/haar_cascade/haarcascade_frontalface_default.xml",
+					"model_config_path": "",
+					"model_labels_file":"",
+					"description": []
+				}
+			]
+		},
+		{
+			"task_name": "Object Detection",
+			"model": [{
+					"model_name": "Mobile Net SSD",
+					"model_path": "/Models/Object_Detection/ODMobileNet/MobileNetSSD_deploy.caffemodel",
+					"model_config_path": "/Models/Object_Detection/ODMobileNet/MobileNetSSD_deploy.prototxt.txt",
+					"model_labels_file":"",
+					"description": []
+				},
+				{
+					"model_name": "Google Net",
+					"model_path": "/Models/Object_Detection/Caffe/bvlc_googlenet.caffemodel",
+					"model_config_path": "/Models/Object_Detection/ODMobileNet/MobileNetSSD_deploy.prototxt.txt",
+					"model_labels_file": "/Models/Object_Detection/Caffe/synset_words.txt",
+					"description": []
+				},
+				{
+					"model_name": "YOLO v3",
+					"model_path": "/Models/Object_Detection/YOLOv3/yolov3.weights",
+					"model_config_path": "/Models/Object_Detection/YOLOv3/yolov3.cfg",
+					"model_labels_file": "/Models/Object_Detection/YOLOv3/coco.names",
+					"description": []
+				},
+				{
+					"model_name": "YOLO v2",
+					"model_path" : "/Users/aniketpihu/ml-workbench-v2/Models/Object_Detection/YOLOv2/yolov2.weights",
+					"model_config_path": "/Models/Object_Detection/YOLOv2/yolov2.cfg",
+					"model_labels_file": "/Models/Object_Detection/YOLOv2/labels.txt",
+					
+					"description": []
+				}
+			]
+		},
+
+
+
+
+		{
+			"task_name": "Object Tracking",
+			"model": []
+		},
+		{
+			"task_name": "Motion Detection",
+			"model": []
+		}
+	]
+
+}
